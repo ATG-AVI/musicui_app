@@ -1,17 +1,7 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomePage(),
-    );
-  }
-}
+import 'explore_page.dart';
+import 'fav_page.dart';
+import 'you_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -20,6 +10,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+
+  static List<Widget> _pages = <Widget>[
+    HomePageContent(), // Add your home page content here
+    ExplorePage(),
+    YouPage(),
+    FavPage(),
+  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -30,34 +27,32 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text(
-          'Featured',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 24, // Increased font size
-          ),
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search,
-                color: Colors.white, size: 28), // Increased icon size
-            onPressed: () {
-              // Add search functionality here
-            },
-          ),
-        ],
-      ),
-      body: Container(
-        color: Colors.black,
-      ),
+      appBar: _selectedIndex == 0
+          ? AppBar(
+              backgroundColor: Colors.black,
+              title: Text(
+                'Featured',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+              actions: [
+                IconButton(
+                  icon: Icon(Icons.search, color: Colors.white, size: 28),
+                  onPressed: () {
+                    // Add search functionality here
+                  },
+                ),
+              ],
+            )
+          : null, // AppBar only for HomePage
+      body: _pages[_selectedIndex], // Display the selected page
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed, // Set the type to fixed
-        backgroundColor: Colors.black, // Ensure the background color is black
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.black,
         selectedItemColor: Colors.orange,
-        unselectedItemColor:
-            Colors.grey, // Slightly dimmed color for unselected items
+        unselectedItemColor: Colors.grey,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         items: [
@@ -78,6 +73,24 @@ class _HomePageState extends State<HomePage> {
             label: 'Fav',
           ),
         ],
+      ),
+    );
+  }
+}
+
+class HomePageContent extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.black,
+      child: Center(
+        child: Text(
+          'This is the Home page',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+          ),
+        ),
       ),
     );
   }
