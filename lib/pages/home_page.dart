@@ -12,7 +12,7 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   static List<Widget> _pages = <Widget>[
-    HomePageContent(), // Add your home page content here
+    HomePageContent(),
     ExplorePage(),
     YouPage(),
     FavPage(),
@@ -40,14 +40,12 @@ class _HomePageState extends State<HomePage> {
               actions: [
                 IconButton(
                   icon: Icon(Icons.search, color: Colors.white, size: 28),
-                  onPressed: () {
-                    // Add search functionality here
-                  },
+                  onPressed: () {},
                 ),
               ],
             )
-          : null, // AppBar only for HomePage
-      body: _pages[_selectedIndex], // Display the selected page
+          : null,
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.black,
@@ -83,14 +81,63 @@ class HomePageContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.black,
-      child: Center(
-        child: Text(
-          'This is the Home page',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
+      child: Column(
+        children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            child: Container(
+              height: 300,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.deepOrange,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Stack(
+                children: [
+                  Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            'Aviral Sharma',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20, // Reduced font size
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            'Is This The Right Way?',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(
+                        'lib/images/1.jpg',
+                        height: 170,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
