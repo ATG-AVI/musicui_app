@@ -106,51 +106,61 @@ class ExplorePage extends StatelessWidget {
                       'lib/images/1.jpg',
                       'Wack we A wack',
                       'Aviral',
+                      '3:45',
                     ),
                     _buildSongTile(
                       'lib/images/2.jpg',
                       'Major Lazer',
                       'Daksh Bhaiya',
+                      '4:12',
                     ),
                     _buildSongTile(
                       'lib/images/3.jpg',
                       'Doh Wanna Go Bad',
                       'Shinjan Bhaiya',
+                      '2:58',
                     ),
                     _buildSongTile(
                       'lib/images/4.jpg',
                       'No Problem',
                       'Bhushan Bhaiya',
+                      '3:30',
                     ),
                     _buildSongTile(
                       'lib/images/5.jpg',
                       'Etana wanna go bad',
                       'Vedant',
+                      '4:05',
                     ),
                     _buildSongTile(
                       'lib/images/6.jpg',
                       'Major Lazer',
                       'Anish',
+                      '3:50',
                     ),
                     _buildSongTile(
                       'lib/images/7.jpg',
                       'Doh Wanna Go Bad',
                       'Vedant',
+                      '2:45',
                     ),
                     _buildSongTile(
                       'lib/images/8.jpg',
                       'Wack we A wack',
                       'Anish',
+                      '3:15',
                     ),
                     _buildSongTile(
                       'lib/images/9.jpg',
                       'Etana wanna go bad',
                       'Shinjan Bhaiya',
+                      '4:00',
                     ),
                     _buildSongTile(
                       'lib/images/10.jpg',
                       'No Problem',
                       'Daksh Bhaiya',
+                      '3:25',
                     ),
                   ],
                 ),
@@ -162,7 +172,8 @@ class ExplorePage extends StatelessWidget {
     );
   }
 
-  Widget _buildSongTile(String imagePath, String songTitle, String artistName) {
+  Widget _buildSongTile(
+      String imagePath, String songTitle, String artistName, String duration) {
     return Column(
       children: [
         ListTile(
@@ -179,10 +190,21 @@ class ExplorePage extends StatelessWidget {
             artistName,
             style: TextStyle(color: Colors.grey),
           ),
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                duration,
+                style: TextStyle(color: Colors.grey),
+              ),
+              SizedBox(width: 16),
+              Icon(Icons.more_vert, color: Colors.white),
+            ],
+          ),
         ),
         Divider(
           color: Colors.grey,
-          thickness: 1,
+          thickness: 0.1,
         ),
       ],
     );
