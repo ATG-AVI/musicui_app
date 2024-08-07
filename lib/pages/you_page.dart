@@ -75,6 +75,47 @@ class YouPage extends StatelessWidget {
               ],
             ),
           ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: GridView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 24,
+                    mainAxisSpacing: 70,
+                  ),
+                  itemCount: 9,
+                  itemBuilder: (context, index) {
+                    final songDetails = [
+                      'lib/images/1.jpg',
+                      'lib/images/2.jpg',
+                      'lib/images/3.jpg',
+                      'lib/images/4.jpg',
+                      'lib/images/5.jpg',
+                      'lib/images/6.jpg',
+                      'lib/images/7.jpg',
+                      'lib/images/8.jpg',
+                      'lib/images/9.jpg',
+                    ];
+
+                    return Container(
+                      height: 100,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(songDetails[index]),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
