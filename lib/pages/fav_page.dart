@@ -14,7 +14,7 @@ class FavPage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.more_vert, color: Colors.white),
+            icon: Icon(Icons.search, color: Colors.white),
             onPressed: () {},
           ),
         ],
@@ -22,7 +22,49 @@ class FavPage extends StatelessWidget {
       backgroundColor: Colors.black,
       body: Container(
         color: Colors.black,
-        // Add the rest of the content here
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    'lib/images/1.jpg',
+                    height: 100,
+                    width: 100,
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    'MY',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'TURN',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    '99 podcasts - 1234 followers',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
