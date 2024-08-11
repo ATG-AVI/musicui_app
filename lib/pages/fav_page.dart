@@ -35,7 +35,7 @@ class FavPage extends StatelessWidget {
                     height: 100,
                     width: 100,
                   ),
-                  SizedBox(height: 16),
+                  SizedBox(height: 8),
                   Text(
                     'MY',
                     style: TextStyle(
@@ -59,6 +59,70 @@ class FavPage extends StatelessWidget {
                       color: Colors.white,
                       fontSize: 16,
                     ),
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    'My name is Aviral, I study at SRM Institute of Science and Technology and am in my 2nd year pursuing B.Tech in CSE with a specialization in Big Data Analytics.',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[800],
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Text(
+                      'Follow',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.grey[800],
+                          shape: BoxShape.circle,
+                        ),
+                        child: IconButton(
+                          icon: Icon(Icons.share, color: Colors.white),
+                          onPressed: () {},
+                        ),
+                      ),
+                      SizedBox(width: 8),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.grey[800],
+                          shape: BoxShape.circle,
+                        ),
+                        child: IconButton(
+                          icon: Icon(Icons.shuffle, color: Colors.white),
+                          onPressed: () {},
+                        ),
+                      ),
+                      SizedBox(width: 8),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.grey[800],
+                          shape: BoxShape.circle,
+                        ),
+                        child: IconButton(
+                          icon: Icon(Icons.play_arrow, color: Colors.white),
+                          onPressed: () {},
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
